@@ -31,7 +31,7 @@ class CustomBackButton extends StatelessWidget {
             ),
           DecoratedBox(
             decoration: BoxDecoration(
-              border: Border.all(color: AppColors.grey1),
+              border: Border.all(color: AppColors.grisFondo),
               borderRadius: BorderRadius.circular(8.0),
             ),
             child: InkWell(

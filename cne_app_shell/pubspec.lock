@@ -4,7 +4,7 @@ packages:
   app_core:
     dependency: "direct main"
     description:
-      path: "C:/develop/projects/flutter/cne/app_core"
+      path: "C:/Users/Administrador/develop/cne/app_core"
       relative: false
     source: path
     version: "1.0.0+1"
@@ -43,7 +43,7 @@ packages:
   cne_domicilios:
     dependency: "direct main"
     description:
-      path: "C:/develop/projects/flutter/cne/cne_domicilios"
+      path: "C:/Users/Administrador/develop/cne/cne_domicilios"
       relative: false
     source: path
     version: "1.0.0+1"

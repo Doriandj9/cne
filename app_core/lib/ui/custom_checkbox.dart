@@ -24,7 +24,7 @@ class CustomCheckbox extends StatelessWidget {
       child: DecoratedBox(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          border: Border.all(color: AppColors.grey3),
+          border: Border.all(color: AppColors.grisTexto),
         ),
         child: Material(
           borderRadius: BorderRadius.circular(24),

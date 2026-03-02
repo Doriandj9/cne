@@ -1,6 +1,8 @@
-import 'package:cne_domicilios/infrastructure/domicilios_microapp.dart';
+import 'package:cne_app_shell/ui/core/widgets/app_banner_shell.dart';
+import 'package:cne_app_shell/ui/core/widgets/app_bar_shell.dart';
+import 'package:cne_app_shell/ui/core/widgets/app_grid_menu_shell.dart';
+import 'package:cne_app_shell/ui/core/widgets/app_section_title.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -9,24 +11,15 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Title(
-          color: Theme.of(context).colorScheme.primary,
-          child: Text('App shell'),
-        ),
-      ),
-      body: Center(
+      appBar: AppBarShell(),
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: .center,
           children: [
-            Text('App principal'),
-            TextButton(
-              onPressed: () {
-                context.go(DomiciliosMicroapp().path);
-              },
-              child: Text('Domicilios'),
-            ),
+            AppBannerShell(),
+            SizedBox(height: 18),
+            AppSectionTitle(title: 'Servicios'),
+            SizedBox(height: 20),
+            AppGridMenuShell(),
           ],
         ),
       ),

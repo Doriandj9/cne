@@ -16,24 +16,24 @@ abstract final class AppTheme {
     bodySmall: TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w400,
-      color: AppColors.grey3,
+      color: AppColors.grisTexto,
     ),
     labelSmall: TextStyle(
       fontSize: 10,
       fontWeight: FontWeight.w500,
-      color: AppColors.grey3,
+      color: AppColors.grisTexto,
     ),
     labelLarge: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      color: AppColors.grey3,
+      color: AppColors.grisTexto,
     ),
   );
 
   static const _inputDecorationTheme = InputDecorationTheme(
     hintStyle: TextStyle(
       // grey3 works for both light and dark themes
-      color: AppColors.grey3,
+      color: AppColors.grisTexto,
       fontSize: 18.0,
       fontWeight: FontWeight.w400,
     ),

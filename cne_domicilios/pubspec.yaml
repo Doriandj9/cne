@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   app_core:
-    path: 'C:/develop/projects/flutter/cne/app_core'
+    path: 'C:/Users/Administrador/develop/cne/app_core'
   logging: ^1.3.0
   go_router: ^17.1.0
   provider: ^6.1.5+1

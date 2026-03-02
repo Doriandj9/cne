@@ -1,3 +1,4 @@
+import 'package:app_core/widgets/app_bar_shell.dart';
 import 'package:cne_domicilios/core/widgets/app_image.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +9,7 @@ class DomicilioScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Title(
-          color: Theme.of(context).colorScheme.primary,
-          child: Text('Domicilios'),
-        ),
-        centerTitle: true,
-      ),
+      appBar: AppBarShell(title: 'Otra pantalla interna'),
       body: Center(
         child: Column(
           children: [
