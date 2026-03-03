@@ -20,7 +20,7 @@ packages:
   app_core:
     dependency: "direct main"
     description:
-      path: "C:/Users/Administrador/develop/cne/app_core"
+      path: "C:/develop/projects/flutter/cne/app_core"
       relative: false
     source: path
     version: "1.0.0+1"

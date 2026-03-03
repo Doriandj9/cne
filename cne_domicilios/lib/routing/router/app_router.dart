@@ -1,4 +1,5 @@
 import 'package:cne_domicilios/routing/routes/app_routes.dart';
+import 'package:cne_domicilios/ui/domicilio/viewmodels/domicilio_home_viewmodel.dart';
 import 'package:cne_domicilios/ui/domicilio/widget/domicilio_screen.dart';
 import 'package:cne_domicilios/ui/home/viewmodels/home_view_model.dart';
 import 'package:cne_domicilios/ui/home/widgets/home_screen.dart';
@@ -34,6 +35,8 @@ List<RouteBase> appRoutes = [
 List<RouteBase> _routesRelatives = [
   GoRoute(
     path: AppRoutes.relativeDomicilios,
-    builder: (context, state) => DomicilioScreen(),
+    builder: (context, state) => DomicilioScreen(
+      viewmodel: DomicilioHomeViewmodel(postRepository: context.read()),
+    ),
   ),
 ];
