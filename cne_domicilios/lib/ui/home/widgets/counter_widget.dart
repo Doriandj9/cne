@@ -13,14 +13,12 @@ class CounterWidget extends StatefulWidget {
 class _CounterWidgetState extends State<CounterWidget> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     widget.viewModel.increment.addListener(_onResult);
   }
 
   @override
   void didUpdateWidget(covariant CounterWidget oldWidget) {
-    // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     widget.viewModel.increment.removeListener(_onResult);
     widget.viewModel.increment.addListener(_onResult);
@@ -28,14 +26,12 @@ class _CounterWidgetState extends State<CounterWidget> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     widget.viewModel.increment.removeListener(_onResult);
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return ListenableBuilder(
       listenable: widget.viewModel.increment,
       builder: (context, _) => Text('${widget.viewModel.count}'),

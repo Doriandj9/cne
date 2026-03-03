@@ -12,7 +12,6 @@ class DomicilioScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       appBar: AppBarShell(title: 'Otra pantalla interna'),
       body: Center(
@@ -24,6 +23,12 @@ class DomicilioScreen extends StatelessWidget {
             ShowPostsWidget(viewModel: viewmodel),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          viewmodel.load.execute();
+        },
+        child: Icon(Icons.refresh),
       ),
     );
   }

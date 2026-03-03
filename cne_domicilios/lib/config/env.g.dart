@@ -10,7 +10,7 @@ part of 'env.dart';
 // ignore_for_file: type=lint
 // generated_from: .env
 final class _Env {
-  static const String apiUrl = 'jsonplaceholder.typicode.com';
+  static const String apiUrl = 'https://jsonplaceholder.typicode.com';
 
   static const String apiKey = '123456789abcdef';
 

@@ -3,28 +3,18 @@ import 'dart:io';
 import 'package:app_core/utils/result.dart';
 import 'package:cne_domicilios/data/services/api/models/posts_api_model.dart';
 import 'package:logging/logging.dart';
+import 'package:http/http.dart' as http;
 
 typedef AuthHeaderProvider = String? Function();
 
 class ApiClient {
-  ApiClient({String? host, int? port, HttpClient Function()? clientFactory})
-    : _host = host ?? 'localhost',
-      _port = port ?? 8080,
-      _clientFactory = clientFactory ?? HttpClient.new {
-    uri = Uri(
-      scheme: _port == 443 ? 'https' : 'http',
-      host: _host,
-      port: _port,
-      path: '/posts',
-    );
-  }
+  ApiClient({Uri? uri, http.Client Function()? clientFactory})
+    : _uri = uri ?? Uri.http('localhost'),
+      _clientFactory = clientFactory ?? (() => http.Client());
 
-  final String _host;
-  final int _port;
-  final HttpClient Function() _clientFactory;
-  final Logger log = Logger('Api');
-
-  late Uri uri;
+  final Uri _uri;
+  final http.Client Function() _clientFactory;
+  final Logger _log = Logger('Api');
 
   AuthHeaderProvider? _authHeaderProvider;
 
@@ -32,22 +22,26 @@ class ApiClient {
     _authHeaderProvider = authHeaderProvider;
   }
 
-  Future<void> _authHeader(HttpHeaders headers) async {
+  Future<void> _authHeader(Map<String, String> headers) async {
     final header = _authHeaderProvider?.call();
     if (header != null) {
-      headers.add(HttpHeaders.authorizationHeader, header);
+      headers[HttpHeaders.authorizationHeader] = header;
     }
   }
 
   Future<Result<List<PostsApiModel>>> getPosts() async {
     final client = _clientFactory();
+    final url = _uri.replace(path: '/posts');
+    Map<String, String> headers = {
+      HttpHeaders.contentTypeHeader: 'application/json',
+    };
     try {
-      final request = await client.getUrl(uri);
-      await _authHeader(request.headers);
-      final response = await request.close();
-      log.info('Code: ${response.statusCode}');
+      _log.info('La uri: $url');
+      await _authHeader(headers);
+      final response = await client.get(url, headers: headers);
+      _log.info('Code: ${response.statusCode}');
       if (response.statusCode == 200) {
-        final stringData = await response.transform(utf8.decoder).join();
+        final stringData = utf8.decode(response.bodyBytes);
         final json = jsonDecode(stringData) as List<dynamic>;
 
         return Result.ok(
@@ -58,6 +52,8 @@ class ApiClient {
       }
     } on Exception catch (e) {
       return Result.error(e);
+    } finally {
+      client.close();
     }
   }
 }

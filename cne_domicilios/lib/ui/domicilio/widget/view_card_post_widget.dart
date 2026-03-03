@@ -17,9 +17,7 @@ class ViewCardPostWidget extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(
-          20,
-        ), // Bordes redondeados de la tarjeta
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
@@ -31,17 +29,15 @@ class ViewCardPostWidget extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Sección de texto (Izquierda)
           Expanded(
-            flex: 3,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 8),
                 Text(
                   title,
-                  style: TextStyle(
-                    color: Color(0xFF003366), // Azul institucional CNE
+                  style: const TextStyle(
+                    color: Color(0xFF003366),
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
                     height: 1.2,
@@ -57,21 +53,6 @@ class ViewCardPostWidget extends StatelessWidget {
               ],
             ),
           ),
-          //const SizedBox(width: 12),
-          // Imagen (Derecha)
-          // Expanded(
-          //   flex: 1,
-          //   child: ClipRRect(
-          //     borderRadius: BorderRadius.circular(
-          //       16,
-          //     ), // Bordes redondeados de la imagen
-          //     child: Image.network(
-          //       'https://via.placeholder.com/150', // Reemplaza con tu asset de imagen
-          //       height: 80,
-          //       fit: BoxFit.cover,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

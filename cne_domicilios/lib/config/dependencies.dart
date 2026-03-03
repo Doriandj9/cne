@@ -10,7 +10,7 @@ import 'package:provider/single_child_widget.dart';
 List<SingleChildWidget> get appProviders {
   return [
     Provider(create: (context) => CouterRepositoryImp() as CouterRepository),
-    Provider(create: (context) => ApiClient(host: Env.apiUrl, port: 443)),
+    Provider(create: (context) => ApiClient(uri: Uri.parse(Env.apiUrl))),
     Provider(
       create: (contex) =>
           PostRepositoryImpl(apiClient: contex.read()) as PostRepository,

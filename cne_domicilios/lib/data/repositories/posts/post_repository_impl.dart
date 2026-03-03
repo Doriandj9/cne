@@ -12,6 +12,7 @@ class PostRepositoryImpl extends PostRepository {
 
   @override
   Future<Result<List<PostsModel>>> getPosts() async {
+    await Future.delayed(Duration(seconds: 3));
     if (_postCahe == null) {
       final result = await _apiClient.getPosts();
 

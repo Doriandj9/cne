@@ -9,7 +9,6 @@ final class DomiciliosMicroapp implements MicroApp {
   @override
   List<SingleChildWidget> providers = appProviders;
   @override
-  // TODO: implement appRoutes
   List<RouteBase> get routes => appRoutesMicroApp;
 
   @override
