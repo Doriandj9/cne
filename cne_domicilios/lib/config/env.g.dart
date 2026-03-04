@@ -16,5 +16,5 @@ final class _Env {
 
   static const String secretToken = 'super_secreto';
 
-  static const String environment = 'local';
+  static const String environment = 'production';
 }

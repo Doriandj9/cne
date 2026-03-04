@@ -2,10 +2,11 @@ import 'package:app_core/infrastructure/micro_app.dart';
 import 'package:cne_app_shell/routing/router/shell_router.dart';
 import 'package:cne_domicilios/infrastructure/domicilios_microapp.dart';
 import 'package:go_router/go_router.dart';
+import 'package:posts_apps/infrastructure/posts_microapps.dart';
 import 'package:provider/single_child_widget.dart';
 
 List<MicroApp> get _microapps {
-  return [DomiciliosMicroapp()];
+  return [DomiciliosMicroapp(), PostsMicroapp()];
 }
 
 class AppShell {
